@@ -1,0 +1,159 @@
+Looma Project Specification for AI Code Generation
+1. Project Overview & Goal
+Project Name: Looma
+Goal: To build a single-page dashboard application for handloom artisans using Next.js 14, TypeScript, and Tailwind CSS. The dashboard will combine two main functionalities: a Logging System for tracking active projects and a Yarn Bank for managing inventory. The UI should be modern, warm, artisanal, and have a unique personality with fluid animations.
+
+2. Core Technologies
+Framework: Next.js 14 with the App Router.
+
+Language: TypeScript.
+
+Styling: Tailwind CSS.
+
+Animation: Framer Motion.
+
+Icons: Lucide React.
+
+Font: "Lora" (a serif font).
+
+3. Design System & Theming
+This is the central design language. All components must adhere to these specifications.
+
+3.1. Color Palette (Defined as CSS Variables)
+
+Our theme is named "Artisanal & Precious Materials". It will be defined in src/app/globals.css using HSL values.
+
+--background-hsl: 48 33% 96% (Named background in Tailwind, a warm Canvas Beige)
+
+--foreground-hsl: 270 5% 11% (Named foreground in Tailwind, a soft Ink Dark)
+
+--primary-hsl: 42 79% 60% (Named primary in Tailwind, a vibrant Zari Gold)
+
+--secondary-hsl: 274 25% 30% (Named secondary in Tailwind, a deep Royal Purple)
+
+--accent-hsl: 176 50% 22% (Named accent in Tailwind, a rich Silk Emerald)
+
+--card-hsl: 48 33% 98% (Named card in Tailwind, a slightly brighter, off-white card background)
+
+--border-hsl: 270 5% 80% (Named border in Tailwind, a soft border color)
+
+3.2. Typography
+
+Primary Font: "Lora", a serif font. This should be applied globally to the body and referenced via a CSS variable (--font-lora). Use the next/font package for optimization.
+
+Headings: Use text-accent or text-secondary for colors. Should be bold (font-bold).
+
+Body Text: Use text-foreground.
+
+3.3. Global Styles
+
+The body will have a background texture image located at /textures/paper.png. This class (bg-paper-texture) should be applied to the <body> tag in src/app/layout.tsx.
+
+4. Reusable Component Specifications
+All components must be created in the src/components/ directory and must use "use client"; because they include animations.
+
+4.1. Card Component (card.tsx)
+
+Function: A container for content sections.
+
+Styling:
+
+Background: bg-card/80 with a backdrop-blur-sm effect.
+
+Border: border border-border.
+
+Rounded corners: rounded-2xl.
+
+Padding: p-6.
+
+Shadow: shadow-lg.
+
+Animation: On hover, it should lift up slightly (y: -5) and have its shadow increase. Use Framer Motion's whileHover prop with a spring transition (type: 'spring', stiffness: 300).
+
+Props: children: React.ReactNode, className?: string.
+
+4.2. Button Component (button.tsx)
+
+Function: The primary call-to-action button.
+
+Styling:
+
+Background: bg-primary.
+
+Text: text-primary-foreground, font-bold.
+
+Shape: rounded-full.
+
+Padding: py-3 px-6.
+
+Shadow: shadow-lg, which increases on hover (hover:shadow-xl).
+
+Animation: On hover, it should scale up slightly (scale: 1.05). On tap, it should scale down (scale: 0.95). Use Framer Motion's whileHover and whileTap.
+
+Props: children: React.ReactNode, onClick?: () => void, Icon?: LucideIcon. The Icon should be displayed to the left of the children.
+
+4.3. WovenProgressBar Component (woven-progress-bar.tsx)
+
+Function: A visual representation of project progress, embodying the "Digital Loom" metaphor.
+
+Styling:
+
+The container should be a rounded-full track with a light background (bg-black/5) and a subtle border (border border-border).
+
+The progress fill should be a horizontal gradient from from-accent to from-secondary.
+
+Animation: The width of the fill should animate from 0% to the target progress percentage. Use Framer Motion with a smooth easing function (ease: [0.22, 1, 0.36, 1]) and a duration of 1.5 seconds.
+
+Props: progress: number (a value from 0 to 100).
+
+5. Page Structure & Functionality (src/app/page.tsx)
+The main page will be a single dashboard layout.
+
+5.1. Data Structures (for mock data)
+
+Define a mock array for yarnInventory. Each object should have name: string, quantity: string, and two color strings for its gradient placeholder: colorFrom: string, colorTo: string.
+
+Example: { name: "Royal Purple Silk", quantity: "500g", colorFrom: "from-secondary", colorTo: "to-purple-400" }
+
+5.2. Page Layout (from top to bottom)
+
+Header Section:
+
+Contains the application title "Looma" (text-4xl, font-bold, text-accent) and a subtitle "Your Artisan Workspace".
+
+On the right, it should have the Button component with the text "New Project" and a PlusCircle icon from lucide-react.
+
+Logging System Section:
+
+A heading "Projects In Progress" (text-2xl, font-bold, text-secondary) preceded by a BookOpen icon.
+
+Contains a Card component.
+
+Inside the card:
+
+A project title (e.g., "Banarasi Wedding Saree") and subtitle.
+
+On the right, the logged hours (e.g., "14h Logged") in the primary color.
+
+Below this, display the WovenProgressBar component with a mock progress value (e.g., 60).
+
+Yarn Bank Section:
+
+A heading "Yarn Bank" (text-2xl, font-bold, text-secondary) preceded by a Droplets icon.
+
+A responsive grid (grid-cols-2 md:grid-cols-4).
+
+The grid will map over the yarnInventory array and display a Card for each item.
+
+Each yarn card should be an aspect-square (aspect-square), centered, and contain:
+
+A circular div with a gradient using the colorFrom and colorTo properties from the data object.
+
+The yarn name and quantity.
+
+The last item in the grid should be a special "Add Yarn" card.
+
+This card should have a border-2 border-dashed border-foreground/20 style.
+
+It should contain a centered PlusCircle icon and the text "Add Yarn".
+

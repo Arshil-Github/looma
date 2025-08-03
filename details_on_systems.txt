@@ -1,0 +1,34 @@
+### Logging System
+
+- Weaver
+    - Skills
+    - Region
+- Start New Project
+- Project DB
+    - Type
+    - Name
+    - Remarks
+    - Deadline
+    - Current Stage
+    - Input Raw Material and Quantity
+    - Output is an Item(in ItemDB)
+- Project Stages
+    - Preperation, Preweaving, Weaving, Finishings, Completed
+    - **Start/Pause/Resume** timer
+    - start_date
+    - last_worked_on
+
+### Inventory Manager
+
+- Items DB
+    - Photo
+    - Name
+    - Material
+    - Color
+    - Quantity
+    - Total Cost
+- Raw Matarial DB
+    - Record New Stock
+    - Update Existing Stock
+- Low Stock Notifications
+- Surplus Marketplace
