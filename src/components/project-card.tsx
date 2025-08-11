@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Card } from "./card";
 import { WovenProgressBar } from "./woven-progress-bar";
 import { Timer } from "./timer";
@@ -12,11 +11,18 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { state, startTimer, pauseTimer, resumeTimer, stopTimer, updateProjectStage } = useApp();
-  
+  const {
+    state,
+    startTimer,
+    pauseTimer,
+    resumeTimer,
+    stopTimer,
+    updateProjectStage,
+  } = useApp();
+
   const isActive = state.currentProjectId === project.id;
   const activeTimer = state.activeTimer;
-  
+
   const formatTime = (seconds: number) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -24,7 +30,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
   const getProgressPercentage = (stage: ProjectStage) => {
-    const stages: ProjectStage[] = ['Preparation', 'Preweaving', 'Weaving', 'Finishings', 'Completed'];
+    const stages: ProjectStage[] = [
+      "Preparation",
+      "Preweaving",
+      "Weaving",
+      "Finishings",
+      "Completed",
+    ];
     const currentIndex = stages.indexOf(stage);
     return ((currentIndex + 1) / stages.length) * 100;
   };
@@ -42,6 +54,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
   const handleTimerStop = () => {
+    
     stopTimer();
   };
 
@@ -50,7 +63,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <Card className={`${isActive ? 'ring-2 ring-primary' : ''} bg-blue-50/50 border-blue-200`}>
+    <Card
+      className={`${
+        isActive ? "ring-2 ring-primary" : ""
+      } bg-blue-50/50 border-blue-200`}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Side - Project Details */}
         <div className="space-y-4">
@@ -66,14 +83,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <label className="block text-sm font-medium text-foreground mb-1">
                 Project Description
               </label>
-              <p className="text-sm text-foreground/70">{project.remarks || 'No description provided'}</p>
+              <p className="text-sm text-foreground/70">
+                {project.remarks || "No description provided"}
+              </p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-foreground mb-1">
                 Deadline
               </label>
-              <p className="text-sm text-foreground/70">{project.deadline.toLocaleDateString()}</p>
+              <p className="text-sm text-foreground/70">
+                {project.deadline.toLocaleDateString()}
+              </p>
             </div>
 
             <div>
@@ -100,7 +121,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex justify-between items-center">
             <div>
               <span className="text-primary font-semibold text-sm">
-                {formatTime(project.totalTimeLogged + (isActive ? activeTimer.elapsedTime : 0))} Logged
+                {formatTime(
+                  project.totalTimeLogged +
+                    (isActive ? activeTimer.elapsedTime : 0)
+                )}{" "}
+                Logged
               </span>
             </div>
             <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
@@ -124,7 +149,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Progress Bar */}
           <div>
-            <WovenProgressBar progress={getProgressPercentage(project.currentStage)} />
+            <WovenProgressBar
+              progress={getProgressPercentage(project.currentStage)}
+            />
           </div>
         </div>
       </div>
@@ -139,4 +166,4 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
     </Card>
   );
-} 
+}

@@ -211,7 +211,7 @@ export function TrendAnalyzer(): React.ReactElement {
     setMatches([]);
     setIsModalOpen(true);
 
-    const weaverId = "W001";
+    const weaverId = "W003";
     const apiUrl = `http://127.0.0.1:8000/match/${weaverId}`;
 
     try {
