@@ -122,22 +122,6 @@ cd looma/python_server
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
-pip install -r data_requirements.txt
-
-# Configure environment variables
-cat > .env << EOF
-MISTRAL_API_KEY='your_mistral_api_key_here'
-MONGO_URI='your_mongodb_connection_string'
-EOF
-
-# Initialize data pipeline (run once)
-python data_pipeline.py
-
-# Discover trends (run once)
-python trend_discovery_advanced.py
-
 # Start the FastAPI server
 uvicorn main:app --reload
 ```
@@ -148,7 +132,7 @@ uvicorn main:app --reload
 
 ```bash
 # Navigate to frontend directory
-cd ../frontend
+cd ../looma
 
 # Install Node.js dependencies
 npm install
@@ -195,7 +179,7 @@ looma/
 │   ├── 🔄 processing/                 # LLM feature extraction
 │   └── 📦 model/                      # MongoDB integration
 │
-└── ▲ frontend/
+└── ▲ looma/
     └── src/
         ├── app/
         │   ├── page.tsx                    # Main artisan dashboard
@@ -208,32 +192,6 @@ looma/
             └── ...                         # Additional UI components
 ```
 
-## 🔮 Roadmap
-
-- [ ] 🔐 **User Authentication**: JWT-based auth for artisans and models
-- [ ] 🔔 **Real-time Notifications**: WebSocket integration for live updates
-- [ ] 🐳 **Containerization**: Docker setup for easy deployment
-- [ ] 📊 **Advanced Analytics**: Enhanced charts and trend visualizations
-- [ ] ⚙️ **CI/CD Pipeline**: Automated testing and deployment
-- [ ] 🌍 **Multi-language Support**: Internationalization features
-- [ ] 🤖 **AI Recommendations**: Enhanced ML models for better matching
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-1. 🍴 Fork the repository
-2. 🌿 Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. 💾 Commit your changes (`git commit -m 'Add amazing feature'`)
-4. 📤 Push to the branch (`git push origin feature/amazing-feature`)
-5. 🎉 Open a Pull Request
-
-Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - 🧠 **Mistral AI** for providing powerful language models
@@ -243,17 +201,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: support@looma.ai
-- 💬 **Discord**: [Join our community](https://discord.gg/looma)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-username/looma/issues)
-- 📖 **Documentation**: [docs.looma.ai](https://docs.looma.ai)
+- 📧 **Email**: mohdarshilmbd1@gmail.com
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by the Looma Team**
+**Made with ❤️**
 
-[Website](https://looma.ai) • [Documentation](https://docs.looma.ai) • [Twitter](https://twitter.com/loomaai) • [LinkedIn](https://linkedin.com/company/looma)
+[Website](https://www.notion.so/arshiljustchill/Arshil-Projects-Portfolio-2339fb990cfe80b18438db582c5cf7ce) • [LinkedIn](https://www.linkedin.com/in/arshil-mohd/)
 
 </div>
