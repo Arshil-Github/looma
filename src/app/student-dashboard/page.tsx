@@ -6,6 +6,9 @@ import { Card } from "@/components/card";
 import { Button } from "@/components/button";
 import { Modal } from "@/components/modal"; // Your existing modal wrapper
 import { SetPriceModal } from "@/components/set-price-component"; // The new component
+import { UserTypeSelector } from "@/components/user-type-selector";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import {
   User,
   Image as ImageIcon,
@@ -289,47 +292,56 @@ export default function StudentDashboardPage() {
   const [isPriceModalOpen, setIsPriceModalOpen] = useState(false);
   // State to hold the student's current minimum price
   const [minimumPrice, setMinimumPrice] = useState(120); // Default value
+  const router = useRouter();
 
   const handleSavePrice = (newPrice: number) => {
     setMinimumPrice(newPrice);
     setIsPriceModalOpen(false); // Close modal on save
     console.log("New minimum price has been set to:", newPrice);
   };
+
   return (
-    <main className="min-h-screen bg-background text-foreground p-6 max-w-7xl mx-auto">
-      <Header />
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Content Area */}
-        <div className="lg:col-span-2">
-          <ProfileEditor />
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-8">
-          <ConnectedWeaver />
-          <UpcomingShoots />
-
-          {/* --- NEW Financials Card with Trigger Button --- */}
-          <FinancialsCard
-            currentPrice={minimumPrice}
-            onSetPriceClick={() => setIsPriceModalOpen(true)}
-          />
-        </div>
+    <div className="min-h-screen bg-background">
+      {/* User Type Selector - Fixed at top */}
+      <div className="fixed top-4 right-4 z-50">
+        <UserTypeSelector />
       </div>
 
-      {/* --- The Modal Itself --- */}
-      <Modal
-        isOpen={isPriceModalOpen}
-        onClose={() => setIsPriceModalOpen(false)}
-        title="Set Your Minimum Asking Price"
-      >
-        <SetPriceModal
-          currentPrice={minimumPrice}
-          onSave={handleSavePrice}
-          onCancel={() => setIsPriceModalOpen(false)}
-        />
-      </Modal>
-    </main>
+      <main className="min-h-screen bg-background text-foreground p-6 max-w-7xl mx-auto">
+        <Header />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content Area */}
+          <div className="lg:col-span-2">
+            <ProfileEditor />
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-8">
+            <ConnectedWeaver />
+            <UpcomingShoots />
+
+            {/* --- NEW Financials Card with Trigger Button --- */}
+            <FinancialsCard
+              currentPrice={minimumPrice}
+              onSetPriceClick={() => setIsPriceModalOpen(true)}
+            />
+          </div>
+        </div>
+
+        {/* --- The Modal Itself --- */}
+        <Modal
+          isOpen={isPriceModalOpen}
+          onClose={() => setIsPriceModalOpen(false)}
+          title="Set Your Minimum Asking Price"
+        >
+          <SetPriceModal
+            currentPrice={minimumPrice}
+            onSave={handleSavePrice}
+            onCancel={() => setIsPriceModalOpen(false)}
+          />
+        </Modal>
+      </main>
+    </div>
   );
 }

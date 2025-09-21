@@ -1,3 +1,40 @@
 @import "tailwindcss";
 
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap");
+
+:root {
+  --background-hsl: 48 33% 96%;
+  --foreground-hsl: 270 5% 11%;
+  --primary-hsl: 42 79% 60%;
+  --secondary-hsl: 274 25% 30%;
+  --accent-hsl: 176 50% 22%;
+  --card-hsl: 48 33% 98%;
+  --border-hsl: 270 5% 80%;
+  --primary-foreground-hsl: 0 0% 100%;
+}
+
+@theme {
+  --color-background: hsl(var(--background-hsl));
+  --color-foreground: hsl(var(--foreground-hsl));
+  --color-primary: hsl(var(--primary-hsl));
+  --color-primary-foreground: hsl(var(--primary-foreground-hsl));
+  --color-secondary: hsl(var(--secondary-hsl));
+  --color-accent: hsl(var(--accent-hsl));
+  --color-card: hsl(var(--card-hsl));
+  --color-border: hsl(var(--border-hsl));
+  
+  --font-lora: "Lora", serif;
+}
+
+body {
+  font-family: var(--font-lora);
+  background-image: url('/textures/paper.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-paper-texture {
+  background-image: url('/textures/paper.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
