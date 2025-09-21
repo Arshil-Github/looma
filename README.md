@@ -6,6 +6,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green.svg)](https://www.mongodb.com/)
 
 Looma is a comprehensive 3-part platform that revolutionizes the handloom and artisan industry by connecting **Artisans**, **Student Models**, and **Consumers** in a seamless ecosystem. Built with modern web technologies, it provides intelligent project management, trend analysis, and marketplace functionality for the traditional craft industry.
+<img width="1435" height="784" alt="Screenshot 2025-09-21 at 9 45 08 PM" src="https://github.com/user-attachments/assets/e4ae679f-7fe3-46bc-8ca0-fe258156c8a2" />
 
 ## 🏗️ The 3-Part System
 
@@ -30,6 +31,9 @@ Looma is a comprehensive 3-part platform that revolutionizes the handloom and ar
 - **Personalized Content**: Tailored recommendations, deals, and artisan stories
 - **Shopping Cart**: Complete e-commerce functionality with customization options
 
+<img width="1440" height="817" alt="Screenshot 2025-09-21 at 9 45 31 PM" src="https://github.com/user-attachments/assets/dbb7c612-3cb7-48c3-8a31-a655aa0bba8b" />
+
+
 ## ✨ Key Features
 
 ### 🎨 **Artisanal Design System**
@@ -49,6 +53,9 @@ Looma is a comprehensive 3-part platform that revolutionizes the handloom and ar
 - **Image Analysis**: Extract attributes from uploaded images
 - **Smart Recommendations**: Personalized content based on user preferences
 - **Trend Prediction**: Analyze market data for informed decision making
+
+<img width="1440" height="819" alt="Screenshot 2025-09-21 at 9 45 54 PM" src="https://github.com/user-attachments/assets/a3833d77-6dec-4f63-a89a-92a4dda45a07" />
+
 
 ## 🏗️ Architecture
 
@@ -91,6 +98,8 @@ graph TB
    - 🖼️ **Image Analysis**: Extract attributes from uploaded images
    - 🤖 **Attribute Extraction**: AI-powered request analysis
    - 📈 **Trend Analysis**: Market insights and recommendations
+   
+<img width="1440" height="811" alt="Screenshot 2025-09-21 at 9 46 17 PM" src="https://github.com/user-attachments/assets/06c83978-8c6c-4057-aaac-e14db0be75d0" />
 
 ## 🛠️ Tech Stack
 
@@ -159,6 +168,7 @@ cd backend
 npm install
 cd ..
 ```
+<img width="1440" height="819" alt="Screenshot 2025-09-21 at 9 46 39 PM" src="https://github.com/user-attachments/assets/a4fd3cd6-77f6-45c9-8e17-691830612001" />
 
 ### 2. Database Setup
 
@@ -220,6 +230,10 @@ npm run dev
 | `POST` | `/api/projects/:id/timer/resume` | ▶️ Resume project timer |
 | `POST` | `/api/projects/:id/timer/stop` | ⏹️ Stop project timer |
 | `GET` | `/api/projects/:id/timer/status` | 📊 Get timer status |
+
+
+<img width="1435" height="819" alt="Screenshot 2025-09-21 at 9 47 01 PM" src="https://github.com/user-attachments/assets/85e497fe-177f-4356-b24f-60284ab5814d" />
+
 
 ### Example API Usage
 
